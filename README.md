@@ -33,3 +33,10 @@ dans une moindre mesure de les consulter. La consultation détaillée des
 informations pourrait se faire en utilisant une autre application. Une
 consultation sommaire d’informations doit cependant être possible (par exemple
 voir les absences et retards lors des dernières séances de TD ou TP). 
+
+## Utilisateurs
+ Les utilisateurs de l’application sont les enseignants du département
+ informatique. N’hésitez pas à les interroger sur leurs besoins, façon de gérer
+ les absences etc... Mettez les au coeur de votre conception centrée
+ utilisateurs.
+
