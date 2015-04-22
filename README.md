@@ -21,3 +21,15 @@ noms, prénoms, groupes, emploi du temps de chaque groupe et enseignant. Chaque
 enseignant dispose d’un emploi du temps qui lui est propre avec les intitulés,
 groupes et numéros de salles des groupes qu’il suit. Vous pouvez supposer que
 vous disposez de ces différentes informations pour votre application.
+
+## Objectifs
+L’objectif de ce projet est de réaliser une application pour smart phone qui
+permette aux enseignants de saisir le plus rapidement possible les informations
+ci-dessus, tout en minimisant les erreurs (le critère de rapidité est
+essentiel). La saisie des retards doit être particulièrement rapide pour ne pas
+perturber les séances de TD ou TP.
+L’interface a pour principal objectif de saisir les informations ci-dessus et
+dans une moindre mesure de les consulter. La consultation détaillée des
+informations pourrait se faire en utilisant une autre application. Une
+consultation sommaire d’informations doit cependant être possible (par exemple
+voir les absences et retards lors des dernières séances de TD ou TP). 
