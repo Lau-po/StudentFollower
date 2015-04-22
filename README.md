@@ -40,3 +40,23 @@ voir les absences et retards lors des dernières séances de TD ou TP).
  les absences etc... Mettez les au coeur de votre conception centrée
  utilisateurs.
 
+## Résultats attendus
+ L’application sera développée en utilisant Java Swing. L’utilisation de GUI
+ builders tels que NetBeans n’est pas autorisée pour le rendu final (un des
+ objectifs du projet est que maitrisiez les composants, gestionnaires de
+ placement et la gestion des événements). Vous pourrez seulement utiliser des
+ GUI builders pour réaliser le prototypage haute fidélité de votre interface.
+ Pour vous rapprocher de la taille d’un écran de smart phone, vous pourrez
+ utiliser une fenêtre de taille 320×480 pixels, en mode portrait ou paysage. On
+ supposera que l’écran est mono-point (ne permet de détecter qu’un seul doigt
+ en contact, représenté par le curseur de la souris).
+ Les données de l’interface pourront être codées en dur: il n’est pas
+ indispensable de gérer une base de données avec les étudiants, salles,
+ enseignants etc... Vous pouvez supposer que vous avez obtenu des informations
+ d’une base de données et que l’application est dans un certain état suite au
+ traitement de ces informations (à préciser dans le compte rendu).
+ L’application doit contenir suffisamment d’informations pour pouvoir réaliser
+ des évaluations avec des utilisateurs.
+ L’application devra contenir les noms des étudiants suivants (nécessaire pour
+ les évaluations croisées): "Paul Durant", "Pierre Dupond", "Claire Martin",
+ "Jacques Richard", "Jeanne Robin".
