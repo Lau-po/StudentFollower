@@ -3,6 +3,9 @@ package user;
 import java.util.GregorianCalendar;
 import java.util.List;
 
+import notice.Missing;
+import notice.Retard;
+
 public class Student implements Pepole {
 
   private String email;
@@ -43,7 +46,12 @@ public class Student implements Pepole {
   }
   
   public Missing getMissing(Missing m) {
-    return this.missing.get(m);
+    for (Missing missing : missing) {
+      if (m.equals(missing)) {
+        return missing;
+      }
+    }
+    return null;
   }
   
   public List<Retard> getAllRetard() {
@@ -51,7 +59,12 @@ public class Student implements Pepole {
   }
   
   public Retard getRetard(Retard r) {
-    return this.retards.get(r);
+    for (Retard retard : retards) {
+      if (r.equals(retard)) {
+        return retard;
+      }
+    }
+    return null;
   }
   
   public char getGroup() {
