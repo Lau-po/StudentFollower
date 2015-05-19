@@ -1,6 +1,5 @@
 package user;
 
-import java.util.GregorianCalendar;
 import java.util.List;
 
 import notice.Missing;
