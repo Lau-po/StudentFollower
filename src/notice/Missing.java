@@ -13,6 +13,16 @@
 
 package notice;
 
-public class Missing {
+import java.util.GregorianCalendar;
 
+public class Missing {
+  private GregorianCalendar date;
+  
+  public Missing(GregorianCalendar date) {
+    this.date = date;
+  }
+  
+  public GregorianCalendar getDate() {
+    return this.date;
+  }
 }
