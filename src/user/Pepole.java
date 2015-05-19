@@ -16,19 +16,21 @@
 package user;
 
 public interface Pepole {
-  public int getNumber();
+  public String getEmail();
 
   public String getFirstName();
 
-  public String getLastName();
-
   public String getFullName();
 
-  public String getEmail();
-  
-  public String getUserName();
+  public String getLastName();
+
+  public int getNumber();
   
   public String getPassword();
+  
+  public int getStatus();
+  
+  public String getUserName();
   
   public void setPassword(String password);
 }
