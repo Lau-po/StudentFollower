@@ -17,6 +17,10 @@ package user;
 
 import java.util.List;
 
+/**
+ *
+ * @author boinc
+ */
 public class Professor implements Pepole {
 
   private String email;

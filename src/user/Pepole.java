@@ -15,6 +15,10 @@
 
 package user;
 
+/**
+ *
+ * @author boinc
+ */
 public interface Pepole {
   public String getEmail();
 

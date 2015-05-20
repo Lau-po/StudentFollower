@@ -15,6 +15,11 @@ package notice;
 
 import java.util.GregorianCalendar;
 
+/**
+ *
+ * @author boinc
+ */
+
 public class Missing {
   private GregorianCalendar date;
   

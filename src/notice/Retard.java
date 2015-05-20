@@ -15,7 +15,13 @@ package notice;
 
 import java.util.GregorianCalendar;
 
+/**
+ *
+ * @author boinc
+ */
+
 public class Retard {
+    
   private GregorianCalendar date;
   private int duration;
   
@@ -46,8 +52,6 @@ public class Retard {
         return false;
     } else if (!date.equals(other.date))
       return false;
-    if (duration != other.duration)
-      return false;
-    return true;
+    return duration == other.duration;
   }
 }

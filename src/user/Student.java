@@ -5,6 +5,10 @@ import java.util.List;
 import notice.Missing;
 import notice.Retard;
 
+/**
+ *
+ * @author boinc
+ */
 public class Student implements Pepole {
 
   private String email;
