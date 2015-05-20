@@ -45,9 +45,9 @@ public class Student implements Pepole {
   }
   
   public Missing getMissing(Missing m) {
-    for (Missing missing : missing) {
-      if (m.equals(missing)) {
-        return missing;
+    for (Missing mi : missing) {
+      if (m.equals(mi)) {
+        return mi;
       }
     }
     return null;
