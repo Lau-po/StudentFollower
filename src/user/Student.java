@@ -76,7 +76,7 @@ public class Student implements Pepole {
 
   @Override
   public String getEmail() {
-    return this.email;
+    return email;
   }
 
   @Override
