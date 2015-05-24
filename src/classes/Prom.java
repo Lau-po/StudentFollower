@@ -26,15 +26,15 @@ public class Prom {
     
    private List<Student> students;
    private int year;
-   private String id;
+   private char id;
    
-   public Prom(int year, String id) {
+   public Prom(int year, char id) {
        this.year = year;
        this.id = id;
        this.students = new ArrayList<>();
    }
    
-   public Prom(int year, String id, List<Student> students) {
+   public Prom(int year, char id, List<Student> students) {
        this(year, id);
        this.students = students;
    }
@@ -64,7 +64,7 @@ public class Prom {
        return this.year;
    }
    
-   public String getId() {
+   public char getId() {
        return this.id;
    }
     
