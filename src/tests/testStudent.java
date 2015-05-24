@@ -30,6 +30,16 @@ import user.Student;
 public class testStudent {
   
   @Test
+  public final void testEmail() {
+    Student s = new Student("Paul", "Durant");
+    Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
+    Matcher ma = p.matcher(s.getEmail().toUpperCase());
+    if (!ma.matches()) {
+      fail();
+    }
+  }
+  
+  @Test
   public final void testPassword() {
     Student s = new Student("Paul", "Durant");
     if (!s.getPassword().matches("[a-zA-Z0-9]*")) {
@@ -42,16 +52,6 @@ public class testStudent {
     Student s = new Student("Paul", "Durant");
     if (!s.getUserName().matches("[a-z]*")) {
       fail("generateUserName() not valid");
-    }
-  }
-  
-  @Test
-  public final void testEmail() {
-    Student s = new Student("Paul", "Durant");
-    Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
-    Matcher ma = p.matcher(s.getEmail().toUpperCase());
-    if (!ma.matches()) {
-      fail();
     }
   }
   
