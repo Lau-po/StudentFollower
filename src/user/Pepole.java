@@ -37,4 +37,6 @@ public interface Pepole {
   public String getUserName();
   
   public void setPassword(String password);
+  
+  public void generateNewPassword();
 }
