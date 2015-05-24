@@ -35,7 +35,7 @@ public class Manager implements Pepole {
     this.lastName = lastName;
     this.email = email;
     this.userName = this.generateUserName();
-    this.password = generatePassword();
+    this.password = this.generatePassword();
   }
 
   public Manager(String firstName, String lastName, String email, String password) {
@@ -44,6 +44,11 @@ public class Manager implements Pepole {
     this.email = email;
     this.password = password;
     this.userName = this.generateUserName();
+  }
+
+  @Override
+  public void generateNewPassword() {
+    this.password = this.generatePassword();
   }
 
   private String generatePassword() {
@@ -56,14 +61,14 @@ public class Manager implements Pepole {
     return str.toString();
   }
 
+
+
   private String generateUserName() {
     if (this.lastName.length() - 1 > 7) {
       return this.lastName.substring(0, 7) + this.fristName.charAt(0);
     }
-    return this.lastName + this.fristName.charAt(0);
+    return (this.lastName + this.fristName.charAt(0)).toLowerCase();
   }
-
-
 
   @Override
   public String getEmail() {
@@ -108,10 +113,5 @@ public class Manager implements Pepole {
   @Override
   public void setPassword(String password) {
     this.password = password;
-  }
-
-  @Override
-  public void generateNewPassword() {
-    this.password = this.generatePassword();
   }
 }

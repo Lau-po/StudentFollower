@@ -16,6 +16,7 @@
 package user;
 
 import java.util.List;
+import java.util.Random;
 
 /**
  *
@@ -36,6 +37,7 @@ public class Professor implements Pepole {
     this.fristName = firstName;
     this.lastName = lastName;
     this.email = email;
+    this.password = this.generatePassword();
     this.userName = this.generateUserName();
   }
 
@@ -46,12 +48,22 @@ public class Professor implements Pepole {
     this.password = password;
     this.userName = this.generateUserName();
   }
+  
+  private String generatePassword() {
+    char[] characters =
+        "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890".toCharArray();
+    StringBuilder str = new StringBuilder();
+    for (int i = 0; i < 8; i++) {
+      str.append(characters[new Random().nextInt(characters.length - 1)]);
+    }
+    return str.toString();
+  }
 
   private String generateUserName() {
     if (this.lastName.length() - 1 > 7) {
       return this.lastName.substring(0, 7) + this.fristName.charAt(0);
     }
-    return this.lastName + this.fristName.charAt(0);
+    return (this.lastName + this.fristName.charAt(0)).toLowerCase();
   }
 
   @Override
@@ -105,6 +117,11 @@ public class Professor implements Pepole {
 
   public void setOneGroup(char group) {
     this.listOfGroup.add(group);
+  }
+
+  @Override
+  public void generateNewPassword() {
+    this.password = this.generatePassword();
   }
 
 }

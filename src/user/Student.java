@@ -1,6 +1,7 @@
 package user;
 
 import java.util.List;
+import java.util.Random;
 
 import notice.Missing;
 import notice.Retard;
@@ -26,6 +27,7 @@ public class Student implements Pepole {
     this.fristName = firstName;
     this.lastName = lastName;
     this.email = email;
+    this.password = this.generatePassword();
     this.userName = this.generateUserName();
   }
 
@@ -41,11 +43,21 @@ public class Student implements Pepole {
     if (this.lastName.length() - 1 > 7) {
       return this.lastName.substring(0, 7) + this.fristName.charAt(0);
     }
-    return this.lastName + this.fristName.charAt(0);
+    return (this.lastName + this.fristName.charAt(0)).toLowerCase();
   }
   
   public List<Missing> getAllMissing() {
     return this.missing;
+  }
+  
+  private String generatePassword() {
+    char[] characters =
+        "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890".toCharArray();
+    StringBuilder str = new StringBuilder();
+    for (int i = 0; i < 8; i++) {
+      str.append(characters[new Random().nextInt(characters.length - 1)]);
+    }
+    return str.toString();
   }
   
   public Missing getMissing(Missing m) {
@@ -121,6 +133,11 @@ public class Student implements Pepole {
   @Override
   public int getStatus() {
     return this.status;
+  }
+
+  @Override
+  public void generateNewPassword() {
+    this.password = this.generatePassword();
   }
 
 }
