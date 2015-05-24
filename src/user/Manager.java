@@ -13,11 +13,15 @@
 
 package user;
 
+import java.util.Random;
+
 /**
  *
  * @author boinc
  */
+
 public class Manager implements Pepole {
+
   private String email;
   private String fristName;
   private String lastName;
@@ -31,6 +35,7 @@ public class Manager implements Pepole {
     this.lastName = lastName;
     this.email = email;
     this.userName = this.generateUserName();
+    this.password = generatePassword();
   }
 
   public Manager(String firstName, String lastName, String email, String password) {
@@ -41,12 +46,24 @@ public class Manager implements Pepole {
     this.userName = this.generateUserName();
   }
 
+  private String generatePassword() {
+    char[] characters =
+        "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890".toCharArray();
+    StringBuilder str = new StringBuilder();
+    for (int i = 0; i < 8; i++) {
+      str.append(characters[new Random().nextInt(characters.length - 1)]);
+    }
+    return str.toString();
+  }
+
   private String generateUserName() {
     if (this.lastName.length() - 1 > 7) {
       return this.lastName.substring(0, 7) + this.fristName.charAt(0);
     }
     return this.lastName + this.fristName.charAt(0);
   }
+
+
 
   @Override
   public String getEmail() {
@@ -91,5 +108,10 @@ public class Manager implements Pepole {
   @Override
   public void setPassword(String password) {
     this.password = password;
+  }
+
+  @Override
+  public void generateNewPassword() {
+    this.password = this.generatePassword();
   }
 }
