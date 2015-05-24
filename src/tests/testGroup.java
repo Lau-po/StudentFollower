@@ -34,9 +34,11 @@ public class testGroup {
 
   private List<Student> initStudents() {
     List<Student> students = new ArrayList<Student>();
-    students.add(new Student("Mathieu", "Deber", "mat.d@mail.com"));
-    students.add(new Student("Clément", "Dusart", "dus.d@mail.com"));
-    students.add(new Student("Nicolas", "Seys", "nic.s@mail.com"));
+    students.add(new Student("Paul", "Durant", "paul.durantd@etudiant.univ-lille1.fr"));
+    students.add(new Student("Pierre", "Dupond", "pierre.dupondd@etudiant.univ-lille1.fr"));
+    students.add(new Student("Claire", "Martin", "claire.martin@etudiant.univ-lille1.fr"));
+    students.add(new Student("Jacques", "Richard", "jacques.richard@etudiant.univ-lille1.fr"));
+    students.add(new Student("Jeanne", "Robin", "jeanne.robin@etudiant.univ-lille1.fr"));
     return students;
   }
 
