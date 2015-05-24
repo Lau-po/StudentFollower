@@ -35,11 +35,11 @@ public class testProm {
 
   private List<Student> initStudents() {
     List<Student> students = new ArrayList<Student>();
-    students.add(new Student("Paul", "Durant", "paul.durantd@etudiant.univ-lille1.fr"));
-    students.add(new Student("Pierre", "Dupond", "pierre.dupondd@etudiant.univ-lille1.fr"));
-    students.add(new Student("Claire", "Martin", "claire.martin@etudiant.univ-lille1.fr"));
-    students.add(new Student("Jacques", "Richard", "jacques.richard@etudiant.univ-lille1.fr"));
-    students.add(new Student("Jeanne", "Robin", "jeanne.robin@etudiant.univ-lille1.fr"));
+    students.add(new Student("Paul", "Durant"));
+    students.add(new Student("Pierre", "Dupond"));
+    students.add(new Student("Claire", "Martin"));
+    students.add(new Student("Jacques", "Richard"));
+    students.add(new Student("Jeanne", "Robin"));
     return students;
   }
 
