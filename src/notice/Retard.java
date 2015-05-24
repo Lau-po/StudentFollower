@@ -13,6 +13,11 @@
 
 package notice;
 
+/**
+*
+* @author boinc
+*/
+
 public class Retard {
   private Date date;
   private int duration;
