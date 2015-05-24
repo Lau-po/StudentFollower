@@ -32,4 +32,8 @@ public class Missing {
   public void setDate(Date date) {
     this.date = date;
   }
+  
+  public boolean equals(Missing m) {
+    return this.date.equals(m.date);
+  }
 }
