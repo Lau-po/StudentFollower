@@ -5,6 +5,10 @@ import java.util.List;
 import notice.Missing;
 import notice.Retard;
 
+/**
+ *
+ * @author boinc
+ */
 public class Student implements Pepole {
 
   private String email;
@@ -45,9 +49,9 @@ public class Student implements Pepole {
   }
   
   public Missing getMissing(Missing m) {
-    for (Missing missing : missing) {
-      if (m.equals(missing)) {
-        return missing;
+    for (Missing mi : missing) {
+      if (m.equals(mi)) {
+        return mi;
       }
     }
     return null;
@@ -76,7 +80,7 @@ public class Student implements Pepole {
 
   @Override
   public String getEmail() {
-    return this.email;
+    return email;
   }
 
   @Override

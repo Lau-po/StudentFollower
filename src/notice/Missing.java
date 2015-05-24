@@ -13,6 +13,11 @@
 
 package notice;
 
+/**
+ *
+ * @author boinc
+ */
+
 public class Missing {
   private Date date;
   

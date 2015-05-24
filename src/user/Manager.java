@@ -13,6 +13,10 @@
 
 package user;
 
+/**
+ *
+ * @author boinc
+ */
 public class Manager implements Pepole {
   private String email;
   private String fristName;

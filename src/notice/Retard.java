@@ -16,20 +16,20 @@ package notice;
 public class Retard {
   private Date date;
   private int duration;
-  
+
   public Retard(Date date, int duration) {
     this.date = date;
     this.duration = duration;
   }
-  
+
   public Date getDate() {
     return this.date;
   }
-  
+
   public int getDuration() {
     return this.duration;
   }
-  
+
   public boolean equals(Date date) {
     return this.date.equals(date);
   }
