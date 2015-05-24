@@ -41,23 +41,23 @@ public class testGroup {
   }
 
   @Test
-  public final void testAddStudent(){
+  public final void testAddStudent() {
     int before = students.size();
     group.addStudent(students.get(new Random().nextInt(students.size() - 1)));
     int after = students.size();
-    
+
     if (!(before < after)) {
       fail("addStudent() not valid");
     }
   }
-  
+
   @Test
   public final void testGetAllStudent() {
     if (!group.getAllStudents().equals(students)) {
       fail("getAllStudents() not valid");
     }
   }
-  
+
   @Test
   public final void testGetOnStudent() {
     if (!students
@@ -71,7 +71,7 @@ public class testGroup {
     int before = students.size();
     group.removeStudent(students.get(new Random().nextInt(students.size() - 1)));
     int after = students.size();
-      
+
     if (!(before > after)) {
       fail("removeStudent() not valid");
     }
