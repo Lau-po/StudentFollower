@@ -11,8 +11,20 @@ public class Date extends GregorianCalendar {
   }
 
   @Override
-  public String toString() {
-    return "Le : " + date.get(DAY_OF_MONTH) + "/" + date.get(MONTH) + "/" + date.get(YEAR);
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (!super.equals(obj))
+      return false;
+    if (!(obj instanceof Date))
+      return false;
+    Date other = (Date) obj;
+    if (date == null) {
+      if (other.date != null)
+        return false;
+    } else if (!date.equals(other.date))
+      return false;
+    return true;
   }
 
   public GregorianCalendar getDate() {
@@ -23,5 +35,10 @@ public class Date extends GregorianCalendar {
     this.date = date;
   }
 
+  @Override
+  public String toString() {
+    return "Le : " + date.get(DAY_OF_MONTH) + "/" + date.get(MONTH) + "/" + date.get(YEAR);
+  }
 
+  
 }
