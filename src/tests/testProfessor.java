@@ -31,25 +31,25 @@ public class testProfessor {
   
   @Test
   public final void testPassword() {
-    Professor m = new Professor("Paul", "Durant");
-    if (!m.getPassword().matches("[a-zA-Z0-9]*")) {
+    Professor prof = new Professor("Paul", "Durant");
+    if (!prof.getPassword().matches("[a-zA-Z0-9]*")) {
       fail("generatePassword() not valid");
     }
   }
   
   @Test
   public final void testUserName() {
-    Professor m = new Professor("Paul", "Durant");
-    if (!m.getUserName().matches("[a-z]*")) {
+    Professor prof = new Professor("Paul", "Durant");
+    if (!prof.getUserName().matches("[a-z]*")) {
       fail("generateUserName() not valid");
     }
   }
   
   @Test
   public final void testEmail() {
-    Professor m = new Professor("Paul", "Durant");
+    Professor prof = new Professor("Paul", "Durant");
     Pattern p = Pattern.compile("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,4}$");
-    Matcher ma = p.matcher(m.getEmail().toUpperCase());
+    Matcher ma = p.matcher(prof.getEmail().toUpperCase());
     if (!ma.matches()) {
       fail();
     }
