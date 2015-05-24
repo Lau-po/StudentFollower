@@ -15,6 +15,8 @@ package user;
 
 import java.util.Random;
 
+import config.Constants;
+
 /**
  *
  * @author boinc
@@ -30,6 +32,14 @@ public class Manager implements Pepole {
   private int status = 0;
   private String userName;
 
+  public Manager(String firstName, String lastName) {
+    this.fristName = firstName;
+    this.lastName = lastName;
+    this.email = this.generateEmail();
+    this.userName = this.generateUserName();
+    this.password = this.generatePassword();
+  }
+
   public Manager(String firstName, String lastName, String email) {
     this.fristName = firstName;
     this.lastName = lastName;
@@ -44,6 +54,10 @@ public class Manager implements Pepole {
     this.email = email;
     this.password = password;
     this.userName = this.generateUserName();
+  }
+
+  private String generateEmail() {
+    return this.fristName + "." + this.lastName + Constants.EMAIL_SEPARATOR + Constants.EMAIL_DN;
   }
 
   @Override
