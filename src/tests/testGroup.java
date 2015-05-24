@@ -32,32 +32,14 @@ public class testGroup {
   private List<Student> students = initStudents();
   private Group group = new Group('A', students);
 
-  @Test
-  public final void testGetAllStudent() {
-    if (!group.getAllStudents().equals(students)) {
-      fail("getAllStudents() not valid");
-    }
+  private List<Student> initStudents() {
+    List<Student> students = new ArrayList<Student>();
+    students.add(new Student("Mathieu", "Deber", "mat.d@mail.com"));
+    students.add(new Student("Clément", "Dusart", "dus.d@mail.com"));
+    students.add(new Student("Nicolas", "Seys", "nic.s@mail.com"));
+    return students;
   }
 
-  @Test
-  public final void testGetOnStudent() {
-    if (!students
-        .contains(group.getOneStudent(students.get(new Random().nextInt(students.size() - 1))))) {
-      fail("getOneStudent() not valid");
-    }
-  }
-  
-  @Test
-  public final void testRemoveStudent() {
-    int before = students.size();
-    group.removeStudent(students.get(new Random().nextInt(students.size() - 1)));
-    int after = students.size();
-      
-    if (!(before > after)) {
-      fail("removeStudent() not valid");
-    }
-  }
-  
   @Test
   public final void testAddStudent(){
     int before = students.size();
@@ -68,12 +50,30 @@ public class testGroup {
       fail("addStudent() not valid");
     }
   }
+  
+  @Test
+  public final void testGetAllStudent() {
+    if (!group.getAllStudents().equals(students)) {
+      fail("getAllStudents() not valid");
+    }
+  }
+  
+  @Test
+  public final void testGetOnStudent() {
+    if (!students
+        .contains(group.getOneStudent(students.get(new Random().nextInt(students.size() - 1))))) {
+      fail("getOneStudent() not valid");
+    }
+  }
 
-  private List<Student> initStudents() {
-    List<Student> students = new ArrayList<Student>();
-    students.add(new Student("Mathieu", "Deber", "mat.d@mail.com"));
-    students.add(new Student("Clément", "Dusart", "dus.d@mail.com"));
-    students.add(new Student("Nicolas", "Seys", "nic.s@mail.com"));
-    return students;
+  @Test
+  public final void testRemoveStudent() {
+    int before = students.size();
+    group.removeStudent(students.get(new Random().nextInt(students.size() - 1)));
+    int after = students.size();
+      
+    if (!(before > after)) {
+      fail("removeStudent() not valid");
+    }
   }
 }
