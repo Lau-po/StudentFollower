@@ -3,7 +3,6 @@ package user;
 import java.util.List;
 import java.util.Random;
 
-import config.Constants;
 import notice.Missing;
 import notice.Retard;
 
@@ -12,6 +11,8 @@ import notice.Retard;
  * @author boinc
  */
 public class Student implements Pepole {
+  
+  public static String EMAIL_DN_STUDENT = "student.univ-lille1.fr";
 
   private String email;
   private String firstName;
@@ -49,8 +50,8 @@ public class Student implements Pepole {
   }
 
   private String generateEmail() {
-    return this.firstName + "." + this.lastName + Constants.EMAIL_SEPARATOR
-        + Constants.EMAIL_DN_STUDENT;
+    return this.firstName + "." + this.lastName + Manager.EMAIL_SEPARATOR
+        + EMAIL_DN_STUDENT;
   }
 
   @Override

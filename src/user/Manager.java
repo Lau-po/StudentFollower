@@ -15,7 +15,6 @@ package user;
 
 import java.util.Random;
 
-import config.Constants;
 
 /**
  *
@@ -24,6 +23,9 @@ import config.Constants;
 
 public class Manager implements Pepole {
 
+  public static String EMAIL_SEPARATOR = "@";
+  public static String EMAIL_DN = "univ-lille1.fr";
+  
   private String email;
   private String fristName;
   private String lastName;
@@ -57,7 +59,7 @@ public class Manager implements Pepole {
   }
 
   private String generateEmail() {
-    return this.fristName + "." + this.lastName + Constants.EMAIL_SEPARATOR + Constants.EMAIL_DN;
+    return this.fristName + "." + this.lastName + EMAIL_SEPARATOR + EMAIL_DN;
   }
 
   @Override

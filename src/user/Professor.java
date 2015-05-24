@@ -16,7 +16,6 @@ package user;
 import java.util.List;
 import java.util.Random;
 
-import config.Constants;
 
 /**
  *
@@ -58,7 +57,7 @@ public class Professor implements Pepole {
   }
 
   private String generateEmail() {
-    return this.firstName + "." + this.lastName + Constants.EMAIL_SEPARATOR + Constants.EMAIL_DN;
+    return this.firstName + "." + this.lastName + Manager.EMAIL_SEPARATOR + Manager.EMAIL_DN;
   }
 
   @Override
