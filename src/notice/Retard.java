@@ -30,7 +30,7 @@ public class Retard {
     return this.duration;
   }
 
-  public boolean equals(Date date) {
-    return this.date.equals(date);
+  public boolean equals(Retard r) {
+    return this.date.equals(r.getDate());
   }
 }
