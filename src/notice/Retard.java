@@ -13,41 +13,24 @@
 
 package notice;
 
-import java.util.GregorianCalendar;
-
 public class Retard {
-  private GregorianCalendar date;
+  private Date date;
   private int duration;
   
-  public Retard(GregorianCalendar date, int duration) {
+  public Retard(Date date, int duration) {
     this.date = date;
     this.duration = duration;
   }
   
-  public GregorianCalendar getDate() {
+  public Date getDate() {
     return this.date;
   }
   
   public int getDuration() {
     return this.duration;
   }
-
-  @Override
-  public boolean equals(Object obj) {
-    if (this == obj)
-      return true;
-    if (obj == null)
-      return false;
-    if (!(obj instanceof Retard))
-      return false;
-    Retard other = (Retard) obj;
-    if (date == null) {
-      if (other.date != null)
-        return false;
-    } else if (!date.equals(other.date))
-      return false;
-    if (duration != other.duration)
-      return false;
-    return true;
+  
+  public boolean equals(Date date) {
+    return this.date.equals(date);
   }
 }
