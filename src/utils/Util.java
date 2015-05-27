@@ -22,7 +22,9 @@ import java.util.List;
 
 import com.opencsv.CSVReader;
 
+import user.Manager;
 import user.Professor;
+import user.Student;
 
 /**
  * @author boinc
@@ -33,21 +35,50 @@ import user.Professor;
 public class Util {
 
 	private final static String RESOURCES_PATH = "src/resources/";
-	private final static String PROFESSOR_FILE_NAME = "professeurs.csv";
-	
-	
-	
+
+	private final static String PROFESSOR_FILE_NAME = "professors.csv";
+	private final static String STUDENT_FILE_NAME = "students.csv";
+	private final static String MANAGER_FILE_NAME = "managers.csv";
+
 	private final static String COMMENT_CHAR = "#";
 	private final static char SEPARATOR = ';';
 
-	public static List<Professor> professors = new ArrayList<Professor>();;
+	public static List<Manager> managers = new ArrayList<Manager>();
+	public static List<Professor> professors = new ArrayList<Professor>();
+	public static List<Student> students = new ArrayList<Student>();
 
-	public static void findProfessors() throws IOException {
-		File file = new File(RESOURCES_PATH + PROFESSOR_FILE_NAME);
+	public static void findManagers() throws IOException {
+		List<String[]> data = Util.findPepole(MANAGER_FILE_NAME);
+		for (String[] oneData : data) {
+			String firstName = oneData[0];
+			String lastName = oneData[1];
+			String email, password;
+			try {
+				email = oneData[2];
+			} catch (Exception e) {
+				email = "";
+			}
+			try {
+				password = oneData[3];
+			} catch (Exception e) {
+				password = "";
+			}
+			if (email.isEmpty() & password.isEmpty()) {
+				Util.managers.add(new Manager(firstName, lastName));
+			} else if (!email.isEmpty() & password.isEmpty()) {
+				Util.managers.add(new Manager(firstName, lastName, email));
+			} else {
+				Util.managers.add(new Manager(firstName, lastName, email, password));
+			}
+		}
+	}
+
+	private static List<String[]> findPepole(String FileName) {
+		File file = new File(RESOURCES_PATH + FileName);
+		List<String[]> data = new ArrayList<String[]>();
 		try {
 			FileReader fileReader = new FileReader(file);
 			CSVReader csvReader = new CSVReader(fileReader, SEPARATOR);
-			List<String[]> data = new ArrayList<String[]>();
 			String[] nextLine = null;
 			while ((nextLine = csvReader.readNext()) != null) {
 				int size = nextLine.length;
@@ -63,33 +94,64 @@ public class Util {
 				}
 				data.add(nextLine);
 			}
-			for (String[] oneData : data) {
-				String firstName = oneData[0];
-				String lastName = oneData[1];
-				String email, password;
-				try {
-					 email = oneData[2];
-				} catch (Exception e) {
-					 email = null;
-				}
-				try {
-					 password = oneData[3];
-				} catch (Exception e) {
-					password = null;
-				}
-				if (email == null && password == null) {
-					Util.professors.add(new Professor(firstName, lastName));
-				} else if (password == null) {
-					Util.professors.add(new Professor(firstName, lastName,
-							email));
-				} else {
-					Util.professors.add(new Professor(firstName, lastName,
-							email, password));
-				}
-			}
 			csvReader.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return data;
+	}
+
+	public static void findProfessors() throws IOException {
+		List<String[]> data = Util.findPepole(PROFESSOR_FILE_NAME);
+		for (String[] oneData : data) {
+			String firstName = oneData[0];
+			String lastName = oneData[1];
+			String email, password;
+			try {
+				email = oneData[2];
+			} catch (Exception e) {
+				email = "";
+			}
+			try {
+				password = oneData[3];
+			} catch (Exception e) {
+				password = "";
+			}
+			if (email.isEmpty() & password.isEmpty()) {
+				Util.professors.add(new Professor(firstName, lastName));
+			} else if (!email.isEmpty() & password.isEmpty()) {
+				Util.professors.add(new Professor(firstName, lastName, email));
+			} else {
+				Util.professors.add(new Professor(firstName, lastName, email, password));
+			}
+		}
+	}
+
+	public static void findStudents() throws IOException {
+		List<String[]> data = Util.findPepole(STUDENT_FILE_NAME);
+		for (String[] oneData : data) {
+			String firstName = oneData[0];
+			String lastName = oneData[1];
+			String email, password;
+			try {
+				email = oneData[2];
+			} catch (Exception e) {
+				email = "";
+			}
+			try {
+				password = oneData[3];
+			} catch (Exception e) {
+				password = "";
+			}
+			if (email.isEmpty() & password.isEmpty()) {
+				Util.students.add(new Student(firstName, lastName));
+			} else if (!email.isEmpty() & password.isEmpty()) {
+				Util.students.add(new Student(firstName, lastName, email));
+			} else {
+				Util.students.add(new Student(firstName, lastName, email, password));
+			}
 		}
 	}
 }
