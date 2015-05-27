@@ -19,9 +19,10 @@ import java.util.Random;
  * 
  * @author boinc
  */
+
 public class Professor implements Pepole {
 
-	private String email, firstName, lastName, password, userName;
+	private String firstName, lastName, userName, email, password;
 
 	public Professor(String firstName, String lastName) {
 		this.firstName = firstName;
@@ -49,8 +50,8 @@ public class Professor implements Pepole {
 	}
 
 	private String generateEmail() {
-		return (this.firstName + "." + this.lastName + Manager.EMAIL_SEPARATOR
-				+ Manager.EMAIL_DN).toLowerCase();
+		return (this.firstName + "." + this.lastName + Manager.EMAIL_SEPARATOR + Manager.EMAIL_DN)
+				.toLowerCase();
 	}
 
 	@Override

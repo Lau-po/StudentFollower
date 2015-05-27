@@ -16,27 +16,24 @@
 package user;
 
 /**
- *
+ * 
  * @author boinc
  */
+
 public interface Pepole {
-  public String getEmail();
+	public String getEmail();
 
-  public String getFirstName();
+	public String getFirstName();
 
-  public String getFullName();
+	public String getFullName();
 
-  public String getLastName();
+	public String getLastName();
 
-  public int getNumber();
-  
-  public String getPassword();
-  
-  public int getStatus();
-  
-  public String getUserName();
-  
-  public void setPassword(String password);
-  
-  public void generateNewPassword();
+	public String getPassword();
+
+	public String getUserName();
+
+	public void setPassword(String password);
+
+	public void generateNewPassword();
 }
