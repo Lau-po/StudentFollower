@@ -13,7 +13,6 @@
 
 package user;
 
-import java.util.List;
 import java.util.Random;
 
 /**
@@ -22,14 +21,7 @@ import java.util.Random;
  */
 public class Professor implements Pepole {
 
-	private String email;
-	private String firstName;
-	private String lastName;
-	private List<Character> listOfGroup;
-	private int number;
-	private String password;
-	private int status = 1;
-	private String userName;
+	private String email, firstName, lastName, password, userName;
 
 	public Professor(String firstName, String lastName) {
 		this.firstName = firstName;
@@ -103,32 +95,14 @@ public class Professor implements Pepole {
 		return this.lastName;
 	}
 
-	public List<Character> getListOfGroup() {
-		return listOfGroup;
-	}
-
-	@Override
-	public int getNumber() {
-		return this.number;
-	}
-
 	@Override
 	public String getPassword() {
 		return this.password;
 	}
 
 	@Override
-	public int getStatus() {
-		return this.status;
-	}
-
-	@Override
 	public String getUserName() {
 		return this.userName;
-	}
-
-	public void setOneGroup(char group) {
-		this.listOfGroup.add(group);
 	}
 
 	@Override
