@@ -46,8 +46,8 @@ public class Student implements Pepole {
 	}
 
 	private String generateEmail() {
-		return this.firstName + "." + this.lastName + Manager.EMAIL_SEPARATOR
-				+ EMAIL_DN_STUDENT;
+		return (this.firstName + "." + this.lastName + Manager.EMAIL_SEPARATOR + EMAIL_DN_STUDENT)
+				.toLowerCase();
 	}
 
 	@Override

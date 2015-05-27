@@ -53,8 +53,8 @@ public class Manager implements Pepole {
 	}
 
 	private String generateEmail() {
-		return this.firstName + "." + this.lastName + EMAIL_SEPARATOR
-				+ EMAIL_DN;
+		return (this.firstName + "." + this.lastName + EMAIL_SEPARATOR
+				+ EMAIL_DN).toLowerCase();
 	}
 
 	@Override
