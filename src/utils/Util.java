@@ -23,6 +23,7 @@ import java.util.List;
 import com.opencsv.CSVReader;
 
 import user.Manager;
+import user.Pepole;
 import user.Professor;
 import user.Student;
 
@@ -153,5 +154,17 @@ public class Util {
 				Util.students.add(new Student(firstName, lastName, email, password));
 			}
 		}
+	}
+	
+	public static boolean isAllowedToConnect(String userName, String password) {
+		List<Pepole> allowedUsers = new ArrayList<Pepole>();
+		allowedUsers.addAll(Util.managers);
+		allowedUsers.addAll(Util.professors);
+		for (Pepole pepole : allowedUsers) {
+			if (pepole.getUserName() == userName) {
+				return pepole.getPassword() == password;
+			}
+		}
+		return false;
 	}
 }
