@@ -5,8 +5,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,12 +45,6 @@ public class Gestion extends JFrame {
         buttons = new JPanel();
         scrollpane = new JScrollPane(content);
         setPreferredSize(new Dimension(320, 480));
-        title.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                System.out.println(list.get(0).getStatut());
-            }
-        });
         title.setBackground(Color.WHITE);
         title.setOpaque(true);
         title.setPreferredSize(new Dimension(320,50));
@@ -76,7 +68,6 @@ public class Gestion extends JFrame {
     }
 
     private void addButtons() {
-        
         for (int i = 0; i < 20; i++) {
             list.add(new LabelEtu("Jean-Pierre Roger"+i));
             addButton(list.get(i));
@@ -94,9 +85,5 @@ public class Gestion extends JFrame {
         label.setPreferredSize(new Dimension(250,40));
         content.add(label);
         content.add(Box.createVerticalStrut(10));
-    }
-    
-    public static void main(String[] args) {
-        new Gestion();
     }
 }
