@@ -23,6 +23,7 @@ import utils.LabelEtu;
 /**
  * @author seysn
  */
+
 public class Gestion extends JFrame {
     private static final long serialVersionUID = 4310703450531062748L;
     public static LabelEtu label;
@@ -57,7 +58,7 @@ public class Gestion extends JFrame {
         title.setOpaque(true);
         title.setPreferredSize(new Dimension(320,50));
         title.setHorizontalAlignment(JLabel.CENTER);
-        title.setText("Bonjour Adolf Hitler");
+        title.setText("Bonjour Rachid Loyenne");
         title.setFont(new Font("Roboto", Font.TRUETYPE_FONT, 24));
         valider.setFont(new Font("Roboto", Font.TRUETYPE_FONT, 16));
         retour.setFont(new Font("Roboto", Font.TRUETYPE_FONT, 16));

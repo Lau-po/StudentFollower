@@ -26,6 +26,8 @@ import user.Pepole;
 import user.Professor;
 import user.Student;
 
+import classes.Group;
+
 import com.opencsv.CSVReader;
 
 /**
@@ -50,6 +52,7 @@ public class Util {
 	private final static char SEPARATOR = ';';
 	private final static String STUDENT_FILE_NAME = "students.csv";
 	public static List<Student> students = new ArrayList<Student>();
+	public static List<Group> groups = new ArrayList<Group>();
 
 	public static void findManagers() throws IOException {
 		List<String[]> data = Util.findPepole(MANAGER_FILE_NAME);
