@@ -23,16 +23,18 @@ import java.util.Random;
 public class Professor implements Pepole {
 
 	private String firstName, lastName, userName, email, password;
+	private int id;
 
-	public Professor(String firstName, String lastName) {
+	public Professor(int id, String firstName, String lastName) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = this.generateEmail();
 		this.password = this.generatePassword();
 		this.userName = this.generateUserName();
+		this.id = id;
 	}
 
-	public Professor(String firstName, String lastName, String email) {
+	public Professor(int id, String firstName, String lastName, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -40,13 +42,14 @@ public class Professor implements Pepole {
 		this.userName = this.generateUserName();
 	}
 
-	public Professor(String firstName, String lastName, String email,
+	public Professor(int id, String firstName, String lastName, String email,
 			String password) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.password = password;
 		this.userName = this.generateUserName();
+		this.id = id;
 	}
 
 	private String generateEmail() {
@@ -117,5 +120,17 @@ public class Professor implements Pepole {
 				+ ", lastName=" + lastName + ", password=" + password
 				+ ", userName=" + userName + "]";
 	}
+
+	@Override
+	public int getId() {
+		return this.id;
+	}
+
+	@Override
+	public void setId(int id) {
+		this.id = id;
+	}
+	
+	
 
 }

@@ -113,4 +113,16 @@ public class Manager implements Pepole {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	@Override
+	public int getId() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public void setId(int id) {
+		// TODO Auto-generated method stub
+		
+	}
 }

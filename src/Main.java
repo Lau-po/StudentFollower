@@ -11,7 +11,9 @@ public class Main {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		
+		for (Professor p : Util.professors) {
+			System.out.println(p.getId());
+		}
 		Login l = new Login();
 	}
 }

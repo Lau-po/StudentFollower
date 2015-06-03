@@ -40,8 +40,8 @@ import utils.Util;
 @SuppressWarnings("serial")
 public class Login extends JFrame implements ActionListener {
 	
-	public final static int WIDTH = 320;
 	public final static int HEIGHT = 480;
+	public final static int WIDTH = 320;
 	
 	private JButton btnLogin, btnPwdForgot;
 	private JPanel header, body, footer;

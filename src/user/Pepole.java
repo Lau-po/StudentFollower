@@ -22,6 +22,10 @@ package user;
 
 public interface Pepole {
 	public String getEmail();
+	
+	public int getId();
+	
+	public void setId(int id);
 
 	public String getFirstName();
 

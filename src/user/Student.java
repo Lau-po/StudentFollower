@@ -30,8 +30,8 @@ public class Student implements Pepole {
 
 	private String firstName, lastName, userName, email, password;
 	private char group;
-	private List<Retard> retards;
 	private List<Missing> missing;
+	private List<Retard> retards;
 
 	public Student(String firstName, String lastName) {
 		this.firstName = firstName;
