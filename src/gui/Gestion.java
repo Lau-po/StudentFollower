@@ -7,6 +7,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -16,16 +18,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
+import utils.LabelEtu;
+
 /**
  * @author seysn
  */
 public class Gestion extends JFrame {
     private static final long serialVersionUID = 4310703450531062748L;
-    public static JLabel label;
+    public static LabelEtu label;
     private JLabel title;
     private JButton valider, retour;
     private JPanel content, buttons;
     private JScrollPane scrollpane;
+    public List<LabelEtu> list = new ArrayList<>();
 
     public Gestion() {
         init();
@@ -42,6 +47,12 @@ public class Gestion extends JFrame {
         buttons = new JPanel();
         scrollpane = new JScrollPane(content);
         setPreferredSize(new Dimension(320, 480));
+        title.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                System.out.println(list.get(0).getStatut());
+            }
+        });
         title.setBackground(Color.WHITE);
         title.setOpaque(true);
         title.setPreferredSize(new Dimension(320,50));
@@ -65,24 +76,15 @@ public class Gestion extends JFrame {
     }
 
     private void addButtons() {
-        for (int i = 0; i < 30; i++) {            
-            addButton("Jean-Pierre Roger"+i);
-            content.getComponent(i).addMouseListener(new MouseAdapter() {
-                @Override
-                public void mouseClicked(MouseEvent e) {
-                    // TODO FAIRE FONCTIONNER CA
-                    if (content.getComponent(content.getComponentCount()-1).getBackground() == Color.GREEN) {
-                        content.getComponent(content.getComponentCount() - 1).setBackground(Color.BLACK);
-                    }
-                    revalidate();
-                }
-            });
+        
+        for (int i = 0; i < 20; i++) {
+            list.add(new LabelEtu("Jean-Pierre Roger"+i));
+            addButton(list.get(i));
         }
     }
     
-    private void addButton(String nom) {
-        label = new JLabel(nom);
-        label.setBackground(Color.GREEN);
+    private void addButton(LabelEtu label) {
+        label.setBackground(Color.WHITE);
         label.setOpaque(true);
         label.setAlignmentX(Component.CENTER_ALIGNMENT);
         label.setHorizontalAlignment(JLabel.CENTER);
