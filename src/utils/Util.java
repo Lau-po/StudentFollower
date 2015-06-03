@@ -63,7 +63,7 @@ public class Util {
   }
 
   private static List<String[]> findPepole(String FileName) {
-    File file = new File(FileName);
+    File file = new File(RESOURCES_PATH + FileName);
     List<String[]> data = new ArrayList<String[]>();
     try {
       FileReader fileReader = new FileReader(file);
