@@ -128,9 +128,9 @@ public class Util {
 			} catch (Exception e) {
 				password = "";
 			}
-			if (email.isEmpty() & password.isEmpty()) {
+			if (email.isEmpty() && password.isEmpty()) {
 				Util.professors.add(new Professor(Integer.parseInt(id), firstName, lastName));
-			} else if (!email.isEmpty() & password.isEmpty()) {
+			} else if (!email.isEmpty() && password.isEmpty()) {
 				Util.professors.add(new Professor(Integer.parseInt(id), firstName, lastName, email));
 			} else {
 				Util.professors.add(new Professor(Integer.parseInt(id), firstName, lastName, email,
