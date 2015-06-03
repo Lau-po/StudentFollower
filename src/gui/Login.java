@@ -1,9 +1,13 @@
 package gui;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Panel;
 /*
@@ -21,10 +25,13 @@ import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -32,62 +39,93 @@ import utils.Util;
 
 @SuppressWarnings("serial")
 public class Login extends JFrame implements ActionListener {
-  private JButton btnLogin, btnPwdForgot;
-  private Container cp;
-  private Panel inputs, btns;
-  private JLabel lbUsername, lbPassword;
-  private JTextField txtUsername, txtPassword;
+	
+	public final static int WIDTH = 320;
+	public final static int HEIGHT = 480;
+	
+	private JButton btnLogin, btnPwdForgot;
+	private JPanel header, body, footer;
+	private JLabel txtHeader, lbPassword, lbUsername;
+	private JPasswordField txtPassword;
+	private JTextField txtUsername;
 
-  public Login() {
-    cp = getContentPane();
-    lbUsername = new JLabel("Identifiant :");
-    lbPassword = new JLabel("Mot de passe :");
-    txtUsername = new JTextField(25);
-    txtPassword = new JTextField(25);
-    txtPassword = new JPasswordField(10);
-    inputs = new Panel();
-    inputs.setLayout(new GridLayout(3, 5));
-    inputs.add(lbUsername);
-    inputs.add(txtUsername);
-    inputs.add(lbPassword);
-    inputs.add(txtPassword);
-    btnLogin = new JButton("Connexion");
-    btnLogin.addActionListener(this);
-    btnLogin.setFont(new Font("Roboto", Font.TRUETYPE_FONT, 16));
-    btnPwdForgot = new JButton("Mot de passe, oublié ?");
-    btnPwdForgot.addActionListener(this);
-    btnPwdForgot.setFont(new Font("Roboto", Font.TRUETYPE_FONT, 16));
-    btns = new Panel();
-    btns.setLayout(new FlowLayout());
-    btns.add(btnLogin);
-    btns.add(btnPwdForgot);
-    cp.add(inputs, BorderLayout.PAGE_START);
-    cp.add(btns, BorderLayout.CENTER);
-    setDefaultCloseOperation(EXIT_ON_CLOSE);
-    setSize(320, 480);
-    setVisible(true);
-  }
+	public Login() {
+		this.init();
+		
+		this.buildHeader();
+		add(header, BorderLayout.NORTH);
+	
+		lbUsername = new JLabel("Identifiant : ");
+		txtUsername = new JTextField(15);
 
-  @Override
-  public void actionPerformed(ActionEvent e) {
-    if (e.getSource() == this.btnLogin) {
-      if (Util.isAllowedToConnect(txtUsername.getText(), txtPassword.getText())) {
-        // TODO
-      } else {
-        JOptionPane.showMessageDialog(this, "Veuillez recommencer. ", "Connexion",
-            JOptionPane.ERROR_MESSAGE);
-      }
-    } else if (e.getSource() == this.btnPwdForgot) {
-      String email =
-          JOptionPane.showInputDialog(this, "Entrez votre addresse mail : ", "exemple@domain.com",
-              JOptionPane.INFORMATION_MESSAGE);
-      if (Util.getLostPasswordByEmail(email) != null) {
-        JOptionPane.showMessageDialog(this,
-            "Votre mot de passe est " + Util.getLostPasswordByEmail(email));
-      } else {
-        JOptionPane.showMessageDialog(this, "Veuillez recommencer. ", "Mot de passe perdu",
-            JOptionPane.ERROR_MESSAGE);
-      }
-    }
-  }
+		lbPassword = new JLabel("Mot de passe :");
+		txtPassword = new JPasswordField(15);
+		
+		this.buildBody();
+		add(body, BorderLayout.CENTER);
+		
+		this.buildFooter();
+		add(footer, BorderLayout.SOUTH);
+		
+		pack();
+		setLocationRelativeTo(null);
+		setVisible(true);
+	}
+	
+	@SuppressWarnings("deprecation")
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if (e.getSource() == this.btnLogin) {
+			if (Util.isAllowedToConnect(txtUsername.getText(),
+					txtPassword.getText())) {
+				setVisible(false);
+				new Group(this.txtUsername.getText());
+			} else {
+				JOptionPane.showMessageDialog(this, "Veuillez recommencer. ",
+						"Connexion", JOptionPane.ERROR_MESSAGE);
+			}
+		} else if (e.getSource() == this.btnPwdForgot) {
+			String email = JOptionPane.showInputDialog(this,
+					"Entrez votre addresse mail : ", "exemple@domain.com",
+					JOptionPane.INFORMATION_MESSAGE);
+			if (Util.getLostPasswordByEmail(email) != null) {
+				JOptionPane.showMessageDialog(this, "Votre mot de passe est "
+						+ Util.getLostPasswordByEmail(email));
+			} else {
+				JOptionPane.showMessageDialog(this, "Veuillez recommencer. ",
+						"Mot de passe perdu", JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	}
+
+	private void buildBody() {
+		body = new JPanel();
+		body.add(lbUsername);
+		body.add(txtUsername);
+		body.add(lbPassword);
+		body.add(txtPassword);
+	}
+
+	private void buildFooter() {
+		footer = new JPanel();
+		btnLogin = new JButton("Connexion");
+		btnLogin.addActionListener(this);
+		btnPwdForgot = new JButton("Mot de passe, oublié?");
+		btnPwdForgot.addActionListener(this);
+		footer.add(btnLogin);
+		footer.add(btnPwdForgot);
+	}
+
+	private void buildHeader() {
+		header = new JPanel();
+		txtHeader = new JLabel("Login");
+		txtHeader.setFont(new Font("Roboto", Font.TRUETYPE_FONT, 24));
+		txtHeader.setHorizontalAlignment(JLabel.CENTER);
+		header.add(txtHeader);
+	}
+
+	private void init() {
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setPreferredSize(new Dimension(WIDTH, HEIGHT));
+	}
 }
