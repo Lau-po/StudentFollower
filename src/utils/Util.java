@@ -133,53 +133,6 @@ public class Util {
     }
   }
 
-<<<<<<< HEAD
-	public static void findStudents() throws IOException {
-		List<String[]> data = Util.findPepole(STUDENT_FILE_NAME);
-		for (String[] oneData : data) {
-			String firstName = oneData[0];
-			String lastName = oneData[1];
-			String email, password;
-			try {
-				email = oneData[2];
-			} catch (Exception e) {
-				email = "";
-			}
-			try {
-				password = oneData[3];
-			} catch (Exception e) {
-				password = "";
-			}
-			if (email.isEmpty() & password.isEmpty()) {
-				Util.students.add(new Student(firstName, lastName));
-			} else if (!email.isEmpty() & password.isEmpty()) {
-				Util.students.add(new Student(firstName, lastName, email));
-			} else {
-				Util.students.add(new Student(firstName, lastName, email, password));
-			}
-		}
-	}
-	
-	public static boolean isAllowedToConnect(String userName, String password) {
-		List<Pepole> allowedUsers = new ArrayList<Pepole>();
-		allowedUsers.addAll(Util.managers);
-		allowedUsers.addAll(Util.professors);
-		for (Pepole pepole : allowedUsers) {
-			if (pepole.getUserName() == userName) {
-				return pepole.getPassword() == password;
-			}
-		}
-		return false;
-	}
-	
-	public static boolean closeAll() {
-		System.out.print("Voulez vous quitter ? ");
-		if (Util.sc.nextLine().toLowerCase().equals("oui")) {
-			return true;
-		}
-		return false;
-	}
-=======
   public static void findStudents() throws IOException {
     List<String[]> data = Util.findPepole(STUDENT_FILE_NAME);
     for (String[] oneData : data) {
@@ -229,5 +182,4 @@ public class Util {
     }
     return null;
   }
->>>>>>> e31ebc60089dee2222a4562d875671301ec219b6
 }
