@@ -19,6 +19,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 import com.opencsv.CSVReader;
 
@@ -34,6 +35,8 @@ import user.Student;
  */
 
 public class Util {
+	
+	public static Scanner sc = new Scanner(System.in);
 
 	private final static String RESOURCES_PATH = "src/resources/";
 
@@ -164,6 +167,14 @@ public class Util {
 			if (pepole.getUserName() == userName) {
 				return pepole.getPassword() == password;
 			}
+		}
+		return false;
+	}
+	
+	public static boolean closeAll() {
+		System.out.print("Voulez vous quitter ? ");
+		if (Util.sc.nextLine().toLowerCase().equals("oui")) {
+			return true;
 		}
 		return false;
 	}
