@@ -13,7 +13,10 @@
 
 package user;
 
+import java.util.List;
 import java.util.Random;
+
+import classes.Group;
 
 /**
  * 
@@ -22,6 +25,7 @@ import java.util.Random;
 
 public class Professor implements Pepole {
 
+    private List<Group> groups;
 	private String firstName, lastName, userName, email, password;
 	private int id;
 
@@ -40,6 +44,7 @@ public class Professor implements Pepole {
 		this.email = email;
 		this.password = this.generatePassword();
 		this.userName = this.generateUserName();
+		this.id = id;
 	}
 
 	public Professor(int id, String firstName, String lastName, String email,
@@ -131,6 +136,12 @@ public class Professor implements Pepole {
 		this.id = id;
 	}
 	
+	public List<Group> getGroups() {
+        return groups;
+    }
 	
+	public void addGroup(Group g) {
+        this.groups.add(g);
+    }
 
 }
