@@ -1,5 +1,9 @@
 package utils;
 
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.JLabel;
 
 public class LabelEtu extends JLabel {
@@ -13,6 +17,20 @@ public class LabelEtu extends JLabel {
         super(nom);
         this.nom = nom;
         this.statut = 0;
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                increment();
+                if (getStatut() == RETARD) {
+                    setBackground(Color.CYAN);
+                } else if (getStatut() == ABSENT) {
+                    setBackground(Color.RED);
+                } else {
+                    setBackground(Color.WHITE);
+                }
+                repaint();
+            }
+        });
     }
     
     public int getStatut() {
