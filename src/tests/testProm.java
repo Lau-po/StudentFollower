@@ -22,7 +22,6 @@ import user.Student;
  * @author boinc
  */
 
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

@@ -40,5 +40,5 @@ public class Date extends GregorianCalendar {
     return "Le : " + date.get(DAY_OF_MONTH) + "/" + date.get(MONTH) + "/" + date.get(YEAR);
   }
 
-  
+
 }

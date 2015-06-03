@@ -26,132 +26,133 @@ import notice.Retard;
 
 public class Student implements Pepole {
 
-	public static String EMAIL_DN_STUDENT = "student.univ-lille1.fr";
+  public static String EMAIL_DN_STUDENT = "student.univ-lille1.fr";
 
-	private String firstName, lastName, userName, email, password;
-	private char group;
-	private List<Missing> missing;
-	private List<Retard> retards;
+  static final String EMAIL_SEPARATOR = "@";
 
-	public Student(String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = this.generateEmail();
-		this.password = this.generatePassword();
-		this.userName = this.generateUserName();
-	}
+  private String firstName, lastName, userName, email, password;
+  private char group;
+  private List<Missing> missing;
+  private List<Retard> retards;
 
-	public Student(String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = this.generatePassword();
-		this.userName = this.generateUserName();
-	}
+  public Student(String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = this.generateEmail();
+    this.password = this.generatePassword();
+    this.userName = this.generateUserName();
+  }
 
-	public Student(String firstName, String lastName, String email,
-			String password) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.userName = this.generateUserName();
-	}
+  public Student(String firstName, String lastName, String email) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = this.generatePassword();
+    this.userName = this.generateUserName();
+  }
 
-	private String generateEmail() {
-		return (this.firstName + "." + this.lastName + Manager.EMAIL_SEPARATOR + EMAIL_DN_STUDENT)
-				.toLowerCase();
-	}
+  public Student(String firstName, String lastName, String email, String password) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+    this.userName = this.generateUserName();
+  }
 
-	@Override
-	public void generateNewPassword() {
-		this.password = this.generatePassword();
-	}
+  private String generateEmail() {
+    return (this.firstName + "." + this.lastName + EMAIL_SEPARATOR + EMAIL_DN_STUDENT)
+        .toLowerCase();
+  }
 
-	private String generatePassword() {
-		char[] characters = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890"
-				.toCharArray();
-		StringBuilder str = new StringBuilder();
-		for (int i = 0; i < 8; i++) {
-			str.append(characters[new Random().nextInt(characters.length - 1)]);
-		}
-		return str.toString();
-	}
+  @Override
+  public void generateNewPassword() {
+    this.password = this.generatePassword();
+  }
 
-	private String generateUserName() {
-		if (this.lastName.length() - 1 > 7) {
-			return this.lastName.substring(0, 7) + this.firstName.charAt(0);
-		}
-		return (this.lastName + this.firstName.charAt(0)).toLowerCase();
-	}
+  private String generatePassword() {
+    char[] characters =
+        "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890".toCharArray();
+    StringBuilder str = new StringBuilder();
+    for (int i = 0; i < 8; i++) {
+      str.append(characters[new Random().nextInt(characters.length - 1)]);
+    }
+    return str.toString();
+  }
 
-	public List<Missing> getAllMissing() {
-		return this.missing;
-	}
+  private String generateUserName() {
+    if (this.lastName.length() - 1 > 7) {
+      return this.lastName.substring(0, 7) + this.firstName.charAt(0);
+    }
+    return (this.lastName + this.firstName.charAt(0)).toLowerCase();
+  }
 
-	public List<Retard> getAllRetard() {
-		return this.retards;
-	}
+  public List<Missing> getAllMissing() {
+    return this.missing;
+  }
 
-	@Override
-	public String getEmail() {
-		return email;
-	}
+  public List<Retard> getAllRetard() {
+    return this.retards;
+  }
 
-	@Override
-	public String getFirstName() {
-		return this.firstName;
-	}
+  @Override
+  public String getEmail() {
+    return email;
+  }
 
-	@Override
-	public String getFullName() {
-		return this.firstName + " " + this.lastName;
-	}
+  @Override
+  public String getFirstName() {
+    return this.firstName;
+  }
 
-	public char getGroup() {
-		return this.group;
-	}
+  @Override
+  public String getFullName() {
+    return this.firstName + " " + this.lastName;
+  }
 
-	@Override
-	public String getLastName() {
-		return this.lastName;
-	}
+  public char getGroup() {
+    return this.group;
+  }
 
-	public Missing getMissing(Missing m) {
-		for (Missing mi : missing) {
-			if (m.equals(mi)) {
-				return mi;
-			}
-		}
-		return null;
-	}
+  @Override
+  public String getLastName() {
+    return this.lastName;
+  }
 
-	@Override
-	public String getPassword() {
-		return this.password;
-	}
+  public Missing getMissing(Missing m) {
+    for (Missing mi : missing) {
+      if (m.equals(mi)) {
+        return mi;
+      }
+    }
+    return null;
+  }
 
-	public Retard getRetard(Retard r) {
-		for (Retard retard : retards) {
-			if (r.equals(retard)) {
-				return retard;
-			}
-		}
-		return null;
-	}
+  @Override
+  public String getPassword() {
+    return this.password;
+  }
 
-	@Override
-	public String getUserName() {
-		return this.userName;
-	}
+  public Retard getRetard(Retard r) {
+    for (Retard retard : retards) {
+      if (r.equals(retard)) {
+        return retard;
+      }
+    }
+    return null;
+  }
 
-	public void setGroup(String group) {
-		this.group = group.charAt(0);
-	}
+  @Override
+  public String getUserName() {
+    return this.userName;
+  }
 
-	@Override
-	public void setPassword(String password) {
-		this.password = password;
-	}
+  public void setGroup(String group) {
+    this.group = group.charAt(0);
+  }
+
+  @Override
+  public void setPassword(String password) {
+    this.password = password;
+  }
 
 }

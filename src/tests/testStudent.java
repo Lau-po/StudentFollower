@@ -23,12 +23,12 @@ import org.junit.Test;
 import user.Student;
 
 /**
-*
-* @author boinc
-*/
+ *
+ * @author boinc
+ */
 
 public class testStudent {
-  
+
   @Test
   public final void testEmail() {
     Student s = new Student("Paul", "Durant");
@@ -38,7 +38,7 @@ public class testStudent {
       fail();
     }
   }
-  
+
   @Test
   public final void testPassword() {
     Student s = new Student("Paul", "Durant");
@@ -46,7 +46,7 @@ public class testStudent {
       fail("generatePassword() not valid");
     }
   }
-  
+
   @Test
   public final void testUserName() {
     Student s = new Student("Paul", "Durant");
@@ -54,5 +54,5 @@ public class testStudent {
       fail("generateUserName() not valid");
     }
   }
-  
+
 }

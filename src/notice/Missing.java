@@ -20,19 +20,19 @@ package notice;
 
 public class Missing {
   private Date date;
-  
+
   public Missing(Date date) {
     this.date = date;
   }
-  
+
   public Date getDate() {
     return this.date;
   }
-  
+
   public void setDate(Date date) {
     this.date = date;
   }
-  
+
   public boolean equals(Missing m) {
     return this.date.equals(m.date);
   }

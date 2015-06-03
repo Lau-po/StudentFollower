@@ -25,123 +25,108 @@ import classes.Group;
 
 public class Professor implements Pepole {
 
-    private List<Group> groups;
-	private String firstName, lastName, userName, email, password;
-	private int id;
+  private static final String EMAIL_DN = "univ-lille1.fr";
+  private String firstName, lastName, userName, email, password;
+  private List<Group> groups;
 
-	public Professor(int id, String firstName, String lastName) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = this.generateEmail();
-		this.password = this.generatePassword();
-		this.userName = this.generateUserName();
-		this.id = id;
-	}
+  public Professor(int id, String firstName, String lastName) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = this.generateEmail();
+    this.password = this.generatePassword();
+    this.userName = this.generateUserName();
+  }
 
-	public Professor(int id, String firstName, String lastName, String email) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = this.generatePassword();
-		this.userName = this.generateUserName();
-		this.id = id;
-	}
+  public Professor(int id, String firstName, String lastName, String email) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = this.generatePassword();
+    this.userName = this.generateUserName();
+  }
 
-	public Professor(int id, String firstName, String lastName, String email,
-			String password) {
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.password = password;
-		this.userName = this.generateUserName();
-		this.id = id;
-	}
+  public Professor(int id, String firstName, String lastName, String email, String password) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.email = email;
+    this.password = password;
+    this.userName = this.generateUserName();
+  }
 
-	private String generateEmail() {
-		return (this.firstName + "." + this.lastName + Manager.EMAIL_SEPARATOR + Manager.EMAIL_DN)
-				.toLowerCase();
-	}
+  public void addGroup(Group g) {
+    this.groups.add(g);
+  }
 
-	@Override
-	public void generateNewPassword() {
-		this.password = this.generatePassword();
-	}
+  private String generateEmail() {
+    return (this.firstName + "." + this.lastName + Student.EMAIL_SEPARATOR + EMAIL_DN)
+        .toLowerCase();
+  }
 
-	private String generatePassword() {
-		char[] characters = "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890"
-				.toCharArray();
-		StringBuilder str = new StringBuilder();
-		for (int i = 0; i < 8; i++) {
-			str.append(characters[new Random().nextInt(characters.length - 1)]);
-		}
-		return str.toString();
-	}
+  @Override
+  public void generateNewPassword() {
+    this.password = this.generatePassword();
+  }
 
-	private String generateUserName() {
-		if (this.lastName.length() - 1 > 7) {
-			return this.lastName.substring(0, 7) + this.firstName.charAt(0);
-		}
-		return (this.lastName + this.firstName.charAt(0)).toLowerCase();
-	}
-
-	@Override
-	public String getEmail() {
-		return this.email;
-	}
-
-	@Override
-	public String getFirstName() {
-		return this.firstName;
-	}
-
-	@Override
-	public String getFullName() {
-		return this.firstName + " " + this.lastName;
-	}
-
-	@Override
-	public String getLastName() {
-		return this.lastName;
-	}
-
-	@Override
-	public String getPassword() {
-		return this.password;
-	}
-
-	@Override
-	public String getUserName() {
-		return this.userName;
-	}
-
-	@Override
-	public void setPassword(String password) {
-		this.password = password;
-	}
-
-	@Override
-	public String toString() {
-		return "Professor [email=" + email + ", firstName=" + firstName
-				+ ", lastName=" + lastName + ", password=" + password
-				+ ", userName=" + userName + "]";
-	}
-
-	@Override
-	public int getId() {
-		return this.id;
-	}
-
-	@Override
-	public void setId(int id) {
-		this.id = id;
-	}
-	
-	public List<Group> getGroups() {
-        return groups;
+  private String generatePassword() {
+    char[] characters =
+        "aAbBcCdDeEfFgGhHiIjJkKlLmMnNoOpPqQrRsStTuUvVwWxXyYzZ1234567890".toCharArray();
+    StringBuilder str = new StringBuilder();
+    for (int i = 0; i < 8; i++) {
+      str.append(characters[new Random().nextInt(characters.length - 1)]);
     }
-	
-	public void addGroup(Group g) {
-        this.groups.add(g);
+    return str.toString();
+  }
+
+  private String generateUserName() {
+    if (this.lastName.length() - 1 > 7) {
+      return this.lastName.substring(0, 7) + this.firstName.charAt(0);
     }
+    return (this.lastName + this.firstName.charAt(0)).toLowerCase();
+  }
+
+  @Override
+  public String getEmail() {
+    return this.email;
+  }
+
+  @Override
+  public String getFirstName() {
+    return this.firstName;
+  }
+
+  @Override
+  public String getFullName() {
+    return this.firstName + " " + this.lastName;
+  }
+
+  public List<Group> getGroups() {
+    return groups;
+  }
+
+  @Override
+  public String getLastName() {
+    return this.lastName;
+  }
+
+  @Override
+  public String getPassword() {
+    return this.password;
+  }
+
+  @Override
+  public String getUserName() {
+    return this.userName;
+  }
+
+  @Override
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  @Override
+  public String toString() {
+    return "Professor [email=" + email + ", firstName=" + firstName + ", lastName=" + lastName
+        + ", password=" + password + ", userName=" + userName + "]";
+  }
 
 }

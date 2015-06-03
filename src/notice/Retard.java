@@ -14,9 +14,9 @@
 package notice;
 
 /**
-*
-* @author boinc
-*/
+ *
+ * @author boinc
+ */
 
 public class Retard {
   private Date date;

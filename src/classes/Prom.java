@@ -23,49 +23,49 @@ import user.Student;
  */
 
 public class Prom {
-    
-   private List<Student> students;
-   private int year;
-   private char id;
-   
-   public Prom(int year, char id) {
-       this.year = year;
-       this.id = id;
-       this.students = new ArrayList<>();
-   }
-   
-   public Prom(int year, char id, List<Student> students) {
-       this(year, id);
-       this.students = students;
-   }
-   
-   public List<Student> getAllStudents() {
-       return this.students;
-   }
-   
-   public Student getOneStudent(Student s) {
-       for (Student student : students) {
-           if (s.equals(student)) {
-               return student;
-           }
-       }
-       return null;
-   }
-   
-   public void addStudent(Student s) {
-       this.students.add(s);
-   }
-   
-   public void removeStudent(Student s) {
-       this.students.remove(s);
-   }
-   
-   public int getYear() {
-       return this.year;
-   }
-   
-   public char getId() {
-       return this.id;
-   }
-    
+
+  private List<Student> students;
+  private int year;
+  private char id;
+
+  public Prom(int year, char id) {
+    this.year = year;
+    this.id = id;
+    this.students = new ArrayList<>();
+  }
+
+  public Prom(int year, char id, List<Student> students) {
+    this(year, id);
+    this.students = students;
+  }
+
+  public List<Student> getAllStudents() {
+    return this.students;
+  }
+
+  public Student getOneStudent(Student s) {
+    for (Student student : students) {
+      if (s.equals(student)) {
+        return student;
+      }
+    }
+    return null;
+  }
+
+  public void addStudent(Student s) {
+    this.students.add(s);
+  }
+
+  public void removeStudent(Student s) {
+    this.students.remove(s);
+  }
+
+  public int getYear() {
+    return this.year;
+  }
+
+  public char getId() {
+    return this.id;
+  }
+
 }

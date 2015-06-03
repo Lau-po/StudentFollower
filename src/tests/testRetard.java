@@ -20,17 +20,17 @@ import notice.Retard;
 import org.junit.Test;
 
 /**
-*
-* @author boinc
-*/
+ *
+ * @author boinc
+ */
 
 public class testRetard {
-  
+
   @Test
   public final void testEquals() {
     Retard r1 = new Retard(new Date(2, 01, 1970), 20);
     Retard r2 = new Retard(new Date(2, 01, 1970), 20);
-    
+
     if (!(r1.equals(r2))) {
       fail("equals() not valid");
     }
